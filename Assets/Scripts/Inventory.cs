@@ -4,9 +4,33 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField]
-    InventorySlot rockSlot;
+    public List<InventorySlot> slots;
 
-    [SerializeField]
-    InventorySlot woodSlot;
+    void Start()
+    {
+        ServiceLocator.inventory = this;
+    }
+
+    public void OnSlotSelect(InventorySlot slot)
+    {
+        foreach (InventorySlot slotIt in slots)
+        {
+            if (slotIt != slot)
+            {
+                slotIt.Deselect();
+            }
+        }
+    }
+
+    public string GetSelectedResource()
+    {
+         foreach (InventorySlot slotIt in slots)
+        {
+            if (slotIt.selected)
+            {
+                return slotIt.id;
+            }
+        }
+        return "";
+    }
 }

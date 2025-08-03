@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CraftingSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private GameObject resource = null;
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseDown()
     {
-        
+        string selectedResource = ServiceLocator.inventory.GetSelectedResource();
+        Debug.Log(selectedResource);
+        if (selectedResource == "")
+        {
+            return;
+        }
+        resource = ServiceLocator.resourceCache.GetResource(selectedResource);
+        resource.transform.position = transform.position;
+        resource.transform.SetParent(transform);
     }
 }
