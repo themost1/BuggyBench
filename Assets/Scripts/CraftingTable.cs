@@ -11,6 +11,8 @@ public class CraftingTable : MonoBehaviour
 
     void Start()
     {
+        ServiceLocator.craftingTable = this;
+
         for (int row = 0; row < 4; row++)
         {
             List<CraftingSlot> slotRow = new List<CraftingSlot>();
@@ -26,6 +28,24 @@ public class CraftingTable : MonoBehaviour
                 slotRow.Add(obj.GetComponent<CraftingSlot>());
             }
             slots.Add(slotRow);
+        }
+    }
+
+    public void SpawnBug()
+    {
+        int attempts = 0;
+        while (attempts < 100)
+        {
+            int row = Random.Range(0, slots.Count);
+            int col = Random.Range(0, slots[0].Count);
+            if (slots[row][col].IsFull())
+            {
+                attempts++;
+                continue;
+            }
+            GameObject bug = ServiceLocator.bugCache.CreateRandomBug();
+            slots[row][col].SetBug(bug);
+            return;
         }
     }
 }

@@ -6,8 +6,15 @@ public class CraftingSlot : MonoBehaviour
 {
     private GameObject resource = null;
 
+    private GameObject bug = null;
+
     void OnMouseDown()
-    {   
+    {
+        if (bug != null)
+        {
+            return;
+        }
+
         string selectedResource = ServiceLocator.inventory.GetSelectedResource();
         if (selectedResource == "")
         {
@@ -25,5 +32,17 @@ public class CraftingSlot : MonoBehaviour
             Destroy(resource);
             return;
         }
+    }
+
+    public bool IsFull()
+    {
+        return bug != null || resource != null;
+    }
+
+    public void SetBug(GameObject bugObj)
+    {
+        this.bug = bugObj;
+        bug.transform.SetParent(transform);
+        bug.transform.position = transform.position;
     }
 }

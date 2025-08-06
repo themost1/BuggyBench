@@ -7,4 +7,6 @@ public class ServiceLocator : MonoBehaviour
     public static Inventory inventory;
     public static ResourceCache resourceCache;
     public static CardCache cardCache;
+    public static BugCache bugCache;
+    public static CraftingTable craftingTable;
 }
