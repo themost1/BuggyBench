@@ -17,7 +17,11 @@ public class CraftingTable : MonoBehaviour
             for (int col = 0; col < 4; col++)
             {
                 GameObject obj = Instantiate(craftingSlotPrefab);
-                obj.transform.position = new Vector3(1.3f * (col - 1.5f), 1.3f * (row - 1.5f), 0f);
+                obj.transform.position = new Vector3(
+                    1.3f * (col - 1.5f),
+                    1.3f * (row - 1.5f) - 0.8f,
+                    0f
+                );
                 obj.transform.SetParent(transform);
                 slotRow.Add(obj.GetComponent<CraftingSlot>());
             }

@@ -7,13 +7,12 @@ public class ResourceCache : MonoBehaviour
     public List<GameObject> resources;
     public Dictionary<string, GameObject> resourceMap = new Dictionary<string, GameObject>();
 
-    void Start()
+    void Awake()
     {
         ServiceLocator.resourceCache = this;
         foreach (GameObject resource in resources)
         {
             resourceMap[resource.GetComponent<Resource>().id] = resource;
-            Debug.Log(resource.GetComponent<Resource>().id);
         }
     }
 
