@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4955837928431459440}
   - component: {fileID: 7885841697741455617}
   - component: {fileID: 5931265989017864052}
+  - component: {fileID: 4720065508000680153}
   m_Layer: 6
   m_Name: Card
   m_TagString: Untagged
@@ -48,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: card
+  title: 
+  description: 
 --- !u!212 &5931265989017864052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,6 +103,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4720065508000680153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920480131504318046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026877eb80e0b45479300fd947a47491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 6881066515281044767}
+  descriptionText: {fileID: 3289196713353366095}
 --- !u!1 &3825608085987206213
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +129,7 @@ GameObject:
   - component: {fileID: 4719435306127134971}
   - component: {fileID: 6881066515281044767}
   m_Layer: 6
-  m_Name: Name
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

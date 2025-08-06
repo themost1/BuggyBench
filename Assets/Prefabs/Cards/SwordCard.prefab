@@ -76,3 +76,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: sword
+  title: Sword
+  description: Deal one damage

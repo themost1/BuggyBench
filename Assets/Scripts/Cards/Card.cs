@@ -9,6 +9,12 @@ public class Card : MonoBehaviour
     [SerializeField]
     private string id;
 
+    [SerializeField]
+    private string title;
+
+    [SerializeField]
+    private string description;
+
     void Start()
     {
         recipe = GetRecipe();
@@ -57,5 +63,15 @@ public class Card : MonoBehaviour
     public string GetId()
     {
         return id;
+    }
+
+    public string GetTitle()
+    {
+        return title;
+    }
+
+    public string GetDescription()
+    {
+        return description;
     }
 }
