@@ -21,6 +21,17 @@ public class Card : MonoBehaviour
         GenerateImage();
     }
 
+    void Update()
+    {
+        /*
+        List<RecipeLocation> locs = GetRecipeLocations();
+        foreach (RecipeLocation rl in locs)
+        {
+            Debug.Log(rl.row + " " + rl.col);
+        }
+        */
+    }
+
     public virtual string[][] GetRecipe()
     {
         return new string[][]
@@ -73,5 +84,58 @@ public class Card : MonoBehaviour
     public string GetDescription()
     {
         return description;
+    }
+
+    public List<RecipeLocation> GetRecipeLocations()
+    {
+        List<RecipeLocation> locs = new List<RecipeLocation>();
+
+        List<List<CraftingSlot>> slots = ServiceLocator.craftingTable.GetSlots();
+        for (int row = 0; row < slots.Count; ++row)
+        {
+            for (int col = 0; col < slots.Count; ++col)
+            {
+                if (!RecipeExists(slots, row, col))
+                {
+                    continue;
+                }
+
+                RecipeLocation rl = new RecipeLocation();
+                rl.row = row;
+                rl.col = col;
+                locs.Add(rl);
+            }
+        }
+
+        return locs;
+    }
+
+    private bool RecipeExists(List<List<CraftingSlot>> slots, int row, int col)
+    {
+        string[][] recipe = GetRecipe();
+        for (int i = 0; i < recipe.Length; i++)
+        {
+            for (int j = 0; j < recipe[i].Length; j++)
+            {
+                int rowCheck = row + i;
+                int colCheck = col + j;
+                if (rowCheck < 0 || rowCheck >= slots.Count)
+                {
+                    return false;
+                }
+
+                if (colCheck < 0 || colCheck >= slots[rowCheck].Count)
+                {
+                    return false;
+                }
+
+                if (!slots[rowCheck][colCheck].HasResource(recipe[i][j]))
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }

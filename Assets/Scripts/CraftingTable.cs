@@ -21,7 +21,7 @@ public class CraftingTable : MonoBehaviour
                 GameObject obj = Instantiate(craftingSlotPrefab);
                 obj.transform.position = new Vector3(
                     1.3f * (col - 1.5f),
-                    1.3f * (row - 1.5f) - 0.8f,
+                    1.3f * ((3 - row) - 1.5f) - 0.8f,
                     0f
                 );
                 obj.transform.SetParent(transform);
@@ -47,5 +47,10 @@ public class CraftingTable : MonoBehaviour
             slots[row][col].SetBug(bug);
             return;
         }
+    }
+
+    public List<List<CraftingSlot>> GetSlots()
+    {
+        return slots;
     }
 }

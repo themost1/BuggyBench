@@ -50,3 +50,6 @@ TagManager:
   - name: Bug
     uniqueID: 2320182367
     locked: 0
+  - name: CraftingTable
+    uniqueID: 510202273
+    locked: 0

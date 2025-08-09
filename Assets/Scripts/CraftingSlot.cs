@@ -10,7 +10,7 @@ public class CraftingSlot : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (bug != null)
+        if (bug != null || resource != null)
         {
             return;
         }
@@ -23,6 +23,8 @@ public class CraftingSlot : MonoBehaviour
         resource = ServiceLocator.resourceCache.GetResource(selectedResource);
         resource.transform.position = transform.position;
         resource.transform.SetParent(transform);
+        resource.GetComponent<Renderer>().sortingLayerName = "CraftingTable";
+        resource.GetComponent<Renderer>().sortingOrder = 1;
     }
 
     void OnMouseOver()
@@ -44,5 +46,15 @@ public class CraftingSlot : MonoBehaviour
         this.bug = bugObj;
         bug.transform.SetParent(transform);
         bug.transform.position = transform.position;
+    }
+
+    public bool HasResource(string resourceId)
+    {
+        if (resource != null && resource.GetComponent<Resource>().id == resourceId)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
