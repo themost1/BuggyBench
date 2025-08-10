@@ -8,5 +8,6 @@ public class PlayButton : MonoBehaviour
     void OnMouseDown()
     {
         SceneManager.LoadScene("DraftScene");
+        ServiceLocator.inventory.gameObject.SetActive(true);
     }
 }

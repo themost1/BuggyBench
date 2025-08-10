@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     {
         ServiceLocator.inventory = this;
         DontDestroyOnLoad(this);
+        gameObject.SetActive(false);
     }
 
     public void OnSlotSelect(InventorySlot slot)

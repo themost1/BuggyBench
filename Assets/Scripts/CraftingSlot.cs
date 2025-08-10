@@ -45,6 +45,10 @@ public class CraftingSlot : MonoBehaviour
     public void SetBug(GameObject bugObj)
     {
         this.bug = bugObj;
+        if (bugObj == null)
+        {
+            return;
+        }
         bug.transform.SetParent(transform);
         bug.transform.position = transform.position;
     }
@@ -57,5 +61,10 @@ public class CraftingSlot : MonoBehaviour
         }
 
         return false;
+    }
+
+    public Bug GetBug()
+    {
+        return bug == null ? null : bug.GetComponent<Bug>();
     }
 }

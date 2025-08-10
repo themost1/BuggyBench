@@ -62,4 +62,95 @@ public class CraftingTable : MonoBehaviour
     {
         return slots;
     }
+
+    public void MoveBugs()
+    {
+        for (int i = 0; i < 100; ++i)
+        {
+            if (AttemptMoveBugs())
+            {
+                return;
+            }
+        }
+    }
+
+    public bool AttemptMoveBugs()
+    {
+        List<Vector2> moveLocs = new List<Vector2>();
+        for (int row = 0; row < slots.Count; ++row)
+        {
+            for (int col = 0; col < slots[row].Count; ++col)
+            {
+                if (slots[row][col].GetBug() == null)
+                {
+                    continue;
+                }
+
+                int attempts = 0;
+                while (true)
+                {
+                    attempts++;
+                    if (attempts > 100)
+                    {
+                        Debug.Log("tm");
+                        return false;
+                    }
+                    int rowOption = row,
+                        colOption = col;
+                    int locOption = Random.Range(0, 4);
+                    if (locOption == 0)
+                    {
+                        rowOption = row - 1;
+                    }
+                    else if (locOption == 1)
+                    {
+                        colOption = col - 1;
+                    }
+                    else if (locOption == 2)
+                    {
+                        rowOption = row + 1;
+                    }
+                    else if (locOption == 3)
+                    {
+                        colOption = col + 1;
+                    }
+
+                    if (
+                        rowOption < 0
+                        || rowOption >= slots.Count
+                        || colOption < 0
+                        || colOption >= slots[0].Count
+                    )
+                    {
+                        continue;
+                    }
+
+                    Vector2 loc = new Vector2(rowOption, colOption);
+                    if (moveLocs.Contains(loc))
+                    {
+                        continue;
+                    }
+                    moveLocs.Add(loc);
+                }
+            }
+        }
+
+        Debug.Log("madeit");
+        int bugsFound = 0;
+        for (int row = 0; row < slots.Count; ++row)
+        {
+            for (int col = 0; col < slots[row].Count; ++col)
+            {
+                if (slots[row][col].GetBug() == null)
+                {
+                    continue;
+                }
+
+                slots[row][col].GetBug().MoveTo(moveLocs[bugsFound], new Vector2(row, col));
+                bugsFound++;
+            }
+        }
+
+        return true;
+    }
 }

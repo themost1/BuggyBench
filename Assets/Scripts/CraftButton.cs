@@ -6,6 +6,6 @@ public class CraftButton : MonoBehaviour
 {
     void OnMouseDown()
     {
-        // ServiceLocator.craftingTable.SpawnBug();
+        ServiceLocator.craftingTable.MoveBugs();
     }
 }

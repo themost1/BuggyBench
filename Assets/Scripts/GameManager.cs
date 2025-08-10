@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextSceneAfterDraft()
     {
         numDraftsDone++;
+        string nextScene = GetNextSceneAfterDraft();
         SceneManager.LoadScene(GetNextSceneAfterDraft());
     }
 
