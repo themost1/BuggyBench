@@ -51,4 +51,19 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+    public void GenerateRandomBasics(int num)
+    {
+        int numBasics = 2;
+        for (int i = 0; i < numBasics; ++i)
+        {
+            slots[i].num = 0;
+        }
+
+        for (int i = 0; i < num; ++i)
+        {
+            int slot = Random.Range(0, numBasics);
+            slots[slot].num++;
+        }
+    }
 }

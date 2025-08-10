@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int numDraftsDone = 0;
+    public int craftTurn = 0;
 
     void Awake()
     {
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "FightScene")
         {
+            craftTurn = 0;
+            ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5);
             ServiceLocator.inventory.gameObject.SetActive(true);
         }
         else

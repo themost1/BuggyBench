@@ -9,5 +9,6 @@ public class CraftButton : MonoBehaviour
         ServiceLocator.player.Craft();
         ServiceLocator.craftingTable.AttackBugs();
         ServiceLocator.craftingTable.MoveBugs();
+        ServiceLocator.inventory.GenerateRandomBasics(ServiceLocator.gameManager.craftTurn + 5);
     }
 }
