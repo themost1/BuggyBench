@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     {
         ServiceLocator.gameManager = this;
         DontDestroyOnLoad(this);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void LoadNextSceneAfterDraft()
@@ -40,5 +41,15 @@ public class GameManager : MonoBehaviour
             return 3;
         }
         return 4;
+    }
+
+    // Performs actions after a scene loads. `sceneType` should be set before
+    // this function is called.
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "MainMenu")
+        {
+            ServiceLocator.inventory.gameObject.SetActive(true);
+        }
     }
 }

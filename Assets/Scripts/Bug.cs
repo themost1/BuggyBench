@@ -15,11 +15,13 @@ public class Bug : MonoBehaviour
         return id;
     }
 
-    public void MoveTo(Vector2 loc, Vector2 oldLoc)
+    public void MoveTo(Vector3 pos, Vector2 gridLoc)
     {
-        transform.DOMove(
-            transform.position + new Vector3(loc.x - oldLoc.x, loc.y - oldLoc.y, 0),
-            1.2f
-        );
+        transform.DOMove(pos, 0.3f).OnComplete(() => SetGridLoc(gridLoc));
+    }
+
+    private void SetGridLoc(Vector2 loc)
+    {
+        ServiceLocator.craftingTable.GetSlots()[(int)loc.x][(int)loc.y].SetBug(gameObject);
     }
 }

@@ -92,7 +92,6 @@ public class CraftingTable : MonoBehaviour
                     attempts++;
                     if (attempts > 100)
                     {
-                        Debug.Log("tm");
                         return false;
                     }
                     int rowOption = row,
@@ -131,11 +130,11 @@ public class CraftingTable : MonoBehaviour
                         continue;
                     }
                     moveLocs.Add(loc);
+                    break;
                 }
             }
         }
 
-        Debug.Log("madeit");
         int bugsFound = 0;
         for (int row = 0; row < slots.Count; ++row)
         {
@@ -146,8 +145,11 @@ public class CraftingTable : MonoBehaviour
                     continue;
                 }
 
-                slots[row][col].GetBug().MoveTo(moveLocs[bugsFound], new Vector2(row, col));
+                Vector2 moveSlot = moveLocs[bugsFound];
+                Vector3 movePos = slots[(int)moveSlot.x][(int)moveSlot.y].transform.position;
+                slots[row][col].GetBug().MoveTo(movePos, moveSlot);
                 bugsFound++;
+                slots[row][col].SetBug(null);
             }
         }
 
