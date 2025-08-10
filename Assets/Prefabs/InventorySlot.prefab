@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: rock
-  resource: {fileID: 8629879868169085609, guid: 9fa144aee13f86c44b7255ccba510dec, type: 3}
   baseSprite: {fileID: 21300000, guid: a3df0eb9884c437489e283d83bdc09e6, type: 3}
   selectedSprite: {fileID: 21300000, guid: e8b6f76cb1ad1fc48b36809b634e37b6, type: 3}
   selected: 0
@@ -326,8 +325,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292668671
-  m_fontColor: {r: 1, g: 0.927329, b: 0.8632076, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
