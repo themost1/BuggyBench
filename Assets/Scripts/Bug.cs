@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bug : MonoBehaviour
@@ -12,6 +13,9 @@ public class Bug : MonoBehaviour
 
     public int health = 10;
     public int attack = 3;
+
+    [SerializeField]
+    private TMP_Text text;
 
     public string GetId()
     {
@@ -26,5 +30,10 @@ public class Bug : MonoBehaviour
     private void SetGridLoc(Vector2 loc)
     {
         ServiceLocator.craftingTable.GetSlots()[(int)loc.x][(int)loc.y].SetBug(gameObject);
+    }
+
+    void Update()
+    {
+        text.text = attack + "<sprite name=\"Attack\">  " + health + "<sprite name=\"Health\">";
     }
 }
