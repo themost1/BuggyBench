@@ -41,6 +41,7 @@ public class CraftingTable : MonoBehaviour
             if (slots[row][col].IsFull())
             {
                 attempts++;
+                Debug.Log("fail");
                 continue;
             }
             GameObject bug = ServiceLocator.bugCache.CreateRandomBug();

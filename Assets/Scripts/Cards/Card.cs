@@ -21,6 +21,7 @@ public class Card : MonoBehaviour
     {
         recipe = GetRecipe();
         GenerateImage();
+        DontDestroyOnLoad(this);
     }
 
     void Update()
@@ -148,6 +149,6 @@ public class Card : MonoBehaviour
             return;
         }
         ServiceLocator.player.GainCard(id);
-        Destroy(gameObject);
+        ServiceLocator.gameManager.LoadNextSceneAfterDraft();
     }
 }
