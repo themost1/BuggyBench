@@ -151,4 +151,6 @@ public class Card : MonoBehaviour
         ServiceLocator.player.GainCard(id);
         ServiceLocator.gameManager.LoadNextSceneAfterDraft();
     }
+
+    void OnCraft() { }
 }

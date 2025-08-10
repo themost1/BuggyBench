@@ -27,4 +27,12 @@ public class Player : MonoBehaviour
         GameObject card = ServiceLocator.cardCache.CreateCard(id);
         cards.Add(card.GetComponent<Card>());
     }
+
+    public void Craft()
+    {
+        foreach (Card card in cards)
+        {
+            card.Craft();
+        }
+    }
 }
