@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         foreach (Card card in cards)
         {
-            card.Craft();
+            card.OnCraft();
         }
     }
 }

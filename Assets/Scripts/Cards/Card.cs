@@ -152,5 +152,5 @@ public class Card : MonoBehaviour
         ServiceLocator.gameManager.LoadNextSceneAfterDraft();
     }
 
-    void OnCraft() { }
+    public void OnCraft() { }
 }
