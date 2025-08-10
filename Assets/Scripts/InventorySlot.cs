@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
 {
     public string id;
 
-    public GameObject resource;
-
-    public Sprite baseSprite, selectedSprite;
+    public Sprite baseSprite,
+        selectedSprite;
 
     public bool selected = false;
 
-    private int num = 0;
+    public int num = 3;
+
+    [SerializeField]
+    private TMP_Text numText;
 
     void OnMouseDown()
     {
         if (selected)
         {
-            Deselect();    
+            Deselect();
         }
         else
         {
@@ -28,6 +31,10 @@ public class InventorySlot : MonoBehaviour
 
     public void Select()
     {
+        if (num <= 0)
+        {
+            return;
+        }
         selected = true;
         GetComponent<SpriteRenderer>().sprite = selectedSprite;
         ServiceLocator.inventory.OnSlotSelect(this);
@@ -37,5 +44,10 @@ public class InventorySlot : MonoBehaviour
     {
         selected = false;
         GetComponent<SpriteRenderer>().sprite = baseSprite;
+    }
+
+    void Update()
+    {
+        numText.text = num.ToString();
     }
 }

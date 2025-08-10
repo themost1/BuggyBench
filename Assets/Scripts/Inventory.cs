@@ -6,9 +6,10 @@ public class Inventory : MonoBehaviour
 {
     public List<InventorySlot> slots;
 
-    void Start()
+    void Awake()
     {
         ServiceLocator.inventory = this;
+        DontDestroyOnLoad(this);
     }
 
     public void OnSlotSelect(InventorySlot slot)
@@ -24,7 +25,7 @@ public class Inventory : MonoBehaviour
 
     public string GetSelectedResource()
     {
-         foreach (InventorySlot slotIt in slots)
+        foreach (InventorySlot slotIt in slots)
         {
             if (slotIt.selected)
             {
@@ -32,5 +33,21 @@ public class Inventory : MonoBehaviour
             }
         }
         return "";
+    }
+
+    public void SpendResource()
+    {
+        foreach (InventorySlot slotIt in slots)
+        {
+            if (slotIt.selected)
+            {
+                --slotIt.num;
+                if (slotIt.num <= 0)
+                {
+                    slotIt.Deselect();
+                }
+                return;
+            }
+        }
     }
 }

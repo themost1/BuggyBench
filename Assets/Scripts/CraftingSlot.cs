@@ -25,6 +25,7 @@ public class CraftingSlot : MonoBehaviour
         resource.transform.SetParent(transform);
         resource.GetComponent<Renderer>().sortingLayerName = "CraftingTable";
         resource.GetComponent<Renderer>().sortingOrder = 1;
+        ServiceLocator.inventory.SpendResource();
     }
 
     void OnMouseOver()
