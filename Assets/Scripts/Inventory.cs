@@ -54,7 +54,7 @@ public class Inventory : MonoBehaviour
 
     public void GenerateRandomBasics(int num)
     {
-        int numBasics = 2;
+        int numBasics = 4;
         for (int i = 0; i < numBasics; ++i)
         {
             slots[i].num = 0;
