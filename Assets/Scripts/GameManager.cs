@@ -27,4 +27,17 @@ public class GameManager : MonoBehaviour
         }
         return "FightScene";
     }
+
+    public int GetNumBugs()
+    {
+        if (numDraftsDone == 3)
+        {
+            return 2;
+        }
+        else if (numDraftsDone == 4)
+        {
+            return 3;
+        }
+        return 4;
+    }
 }

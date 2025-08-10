@@ -9,10 +9,13 @@ public class CraftingTable : MonoBehaviour
 
     private List<List<CraftingSlot>> slots = new List<List<CraftingSlot>>();
 
-    void Start()
+    void Awake()
     {
         ServiceLocator.craftingTable = this;
+    }
 
+    void Start()
+    {
         for (int row = 0; row < 4; row++)
         {
             List<CraftingSlot> slotRow = new List<CraftingSlot>();
@@ -29,9 +32,14 @@ public class CraftingTable : MonoBehaviour
             }
             slots.Add(slotRow);
         }
+
+        for (int i = 0; i < ServiceLocator.gameManager.GetNumBugs(); ++i)
+        {
+            SpawnBug();
+        }
     }
 
-    public void SpawnBug()
+    private void SpawnBug()
     {
         int attempts = 0;
         while (attempts < 100)
