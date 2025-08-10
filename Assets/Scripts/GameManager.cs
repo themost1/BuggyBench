@@ -47,9 +47,13 @@ public class GameManager : MonoBehaviour
     // this function is called.
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "MainMenu")
+        if (scene.name == "FightScene")
         {
             ServiceLocator.inventory.gameObject.SetActive(true);
+        }
+        else
+        {
+            ServiceLocator.inventory.gameObject.SetActive(false);
         }
     }
 }

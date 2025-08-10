@@ -42,7 +42,7 @@ public class Bug : MonoBehaviour
         health = Mathf.Max(0, health - amt);
         if (health == 0)
         {
-            Destroy(this.gameObject);
+            DestroyImmediate(this.gameObject);
         }
     }
 }

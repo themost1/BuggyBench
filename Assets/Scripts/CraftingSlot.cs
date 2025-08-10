@@ -72,4 +72,10 @@ public class CraftingSlot : MonoBehaviour
     {
         return GetBug();
     }
+
+    public void ClearResource()
+    {
+        DestroyImmediate(resource);
+        resource = null;
+    }
 }

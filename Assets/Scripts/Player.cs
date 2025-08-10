@@ -34,5 +34,13 @@ public class Player : MonoBehaviour
         {
             card.OnCraft();
         }
+
+        foreach (var row in ServiceLocator.craftingTable.GetSlots())
+        {
+            foreach (var slot in row)
+            {
+                slot.ClearResource();
+            }
+        }
     }
 }
