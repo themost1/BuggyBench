@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CardCache : MonoBehaviour
@@ -21,5 +23,18 @@ public class CardCache : MonoBehaviour
         GameObject prefab = cardMap[id];
         GameObject instance = Instantiate(prefab);
         return instance;
+    }
+
+    public List<GameObject> CreateRandomCards(int num)
+    {
+        List<string> keys = cardMap.Keys.ToList();
+        keys.OrderBy(arg => Guid.NewGuid()).Take(num).ToList();
+        List<GameObject> cards = new List<GameObject>();
+        for (int i = 0; i < num; i++)
+        {
+            int index = i % keys.Count;
+            cards.Add(CreateCard(keys[index]));
+        }
+        return cards;
     }
 }

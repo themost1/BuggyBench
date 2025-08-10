@@ -9,4 +9,5 @@ public class ServiceLocator : MonoBehaviour
     public static CardCache cardCache;
     public static BugCache bugCache;
     public static CraftingTable craftingTable;
+    public static Player player;
 }

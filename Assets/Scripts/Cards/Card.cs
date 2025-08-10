@@ -15,6 +15,8 @@ public class Card : MonoBehaviour
     [SerializeField]
     private string description;
 
+    public bool inDraft = false;
+
     void Start()
     {
         recipe = GetRecipe();
@@ -137,5 +139,15 @@ public class Card : MonoBehaviour
         }
 
         return true;
+    }
+
+    void OnMouseDown()
+    {
+        if (!inDraft)
+        {
+            return;
+        }
+        ServiceLocator.player.GainCard(id);
+        Destroy(gameObject);
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7885841697741455617}
   - component: {fileID: 5931265989017864052}
   - component: {fileID: 4720065508000680153}
+  - component: {fileID: 7988966046677988696}
   m_Layer: 6
   m_Name: Card
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   id: card
   title: 
   description: 
+  inDraft: 0
 --- !u!212 &5931265989017864052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +92,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2102996973
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6083b464d1ac04d4a9b6ab09046bf115, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,6 +119,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 6881066515281044767}
   descriptionText: {fileID: 3289196713353366095}
+--- !u!61 &7988966046677988696
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920480131504318046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 2.2}
+    newSize: {x: 1.6, y: 2.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 2.2}
+  m_EdgeRadius: 0
 --- !u!1 &3825608085987206213
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +222,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2102996973
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6881066515281044767
@@ -366,7 +394,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2102996973
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3289196713353366095

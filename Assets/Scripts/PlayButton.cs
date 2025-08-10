@@ -7,6 +7,6 @@ public class PlayButton : MonoBehaviour
 {
     void OnMouseDown()
     {
-        SceneManager.LoadScene("FightScene");
+        SceneManager.LoadScene("DraftScene");
     }
 }

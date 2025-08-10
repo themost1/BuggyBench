@@ -6,11 +6,10 @@ public class Player : MonoBehaviour
 {
     private List<Card> cards = new List<Card>();
 
-    void Start()
+    void Awake()
     {
-        GainCard("sword");
-        GainCard("sword");
-        GainCard("sword");
+        ServiceLocator.player = this;
+        DontDestroyOnLoad(this);
     }
 
     void Update()
