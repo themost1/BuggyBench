@@ -59,4 +59,10 @@ public class GameManager : MonoBehaviour
             ServiceLocator.inventory.gameObject.SetActive(false);
         }
     }
+
+    public void OnCraftEnd()
+    {
+        craftTurn++;
+        ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5);
+    }
 }
