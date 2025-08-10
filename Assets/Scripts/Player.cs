@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     private List<Card> cards = new List<Card>();
 
+    public int health = 50;
+
     void Awake()
     {
         ServiceLocator.player = this;

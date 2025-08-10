@@ -155,4 +155,20 @@ public class CraftingTable : MonoBehaviour
 
         return true;
     }
+
+    public void AttackBugs()
+    {
+        for (int row = 0; row < slots.Count; ++row)
+        {
+            for (int col = 0; col < slots[row].Count; ++col)
+            {
+                if (slots[row][col].GetBug() == null)
+                {
+                    continue;
+                }
+
+                ServiceLocator.player.health -= slots[row][col].GetBug().attack;
+            }
+        }
+    }
 }

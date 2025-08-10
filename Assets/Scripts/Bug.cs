@@ -10,6 +10,9 @@ public class Bug : MonoBehaviour
 
     public Vector2 lastLocation;
 
+    public int health = 10;
+    public int attack = 3;
+
     public string GetId()
     {
         return id;
