@@ -152,5 +152,26 @@ public class Card : MonoBehaviour
         ServiceLocator.gameManager.LoadNextSceneAfterDraft();
     }
 
-    public void OnCraft() { }
+    public virtual void OnCraft()
+    {
+        DamageAllEnemies(3);
+    }
+
+    protected void DamageAllEnemies(int amt)
+    {
+        var slots = ServiceLocator.craftingTable.GetSlots();
+        foreach (var row in slots)
+        {
+            foreach (var slot in row)
+            {
+                Bug enemy = slot.GetEnemy();
+                if (enemy == null)
+                {
+                    continue;
+                }
+
+                enemy.TakeDamage(amt);
+            }
+        }
+    }
 }

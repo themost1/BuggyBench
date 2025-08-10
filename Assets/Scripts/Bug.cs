@@ -36,4 +36,13 @@ public class Bug : MonoBehaviour
     {
         text.text = attack + "<sprite name=\"Attack\">  " + health + "<sprite name=\"Health\">";
     }
+
+    public void TakeDamage(int amt)
+    {
+        health = Mathf.Max(0, health - amt);
+        if (health == 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

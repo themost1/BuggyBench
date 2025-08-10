@@ -67,4 +67,9 @@ public class CraftingSlot : MonoBehaviour
     {
         return bug == null ? null : bug.GetComponent<Bug>();
     }
+
+    public Bug GetEnemy()
+    {
+        return GetBug();
+    }
 }
