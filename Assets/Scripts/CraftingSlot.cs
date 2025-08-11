@@ -70,6 +70,11 @@ public class CraftingSlot : MonoBehaviour
             return true;
         }
 
+        if (resource != null && resource.GetComponent<Resource>().id == "diamond")
+        {
+            return true;
+        }
+
         return false;
     }
 
