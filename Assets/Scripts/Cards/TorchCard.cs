@@ -11,6 +11,10 @@ public class TorchCard : Card
 
     public override void OnCraft()
     {
-        DamageAllEnemies(1);
+        int count = GetRecipeLocations().Count;
+        for (int i = 0; i < count; ++i)
+        {
+            DamageAllEnemies(1);
+        }
     }
 }
