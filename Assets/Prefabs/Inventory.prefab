@@ -404,7 +404,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3298477565942232996, guid: 32c5b753f5593a340a088a3a75a9da27, type: 3}
       propertyPath: id
-      value: metal
+      value: coal
       objectReference: {fileID: 0}
     - target: {fileID: 3298477565942232996, guid: 32c5b753f5593a340a088a3a75a9da27, type: 3}
       propertyPath: resource
@@ -412,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 7808665880570439002, guid: b13ff1af1aef035488cbfda9c90a9b48, type: 3}
     - target: {fileID: 3298477565942233050, guid: 32c5b753f5593a340a088a3a75a9da27, type: 3}
       propertyPath: m_Name
-      value: MetalSlot
+      value: CoalSlot
       objectReference: {fileID: 0}
     - target: {fileID: 3298477565942233051, guid: 32c5b753f5593a340a088a3a75a9da27, type: 3}
       propertyPath: m_RootOrder
@@ -461,7 +461,7 @@ PrefabInstance:
     - target: {fileID: 3298477566515144037, guid: 32c5b753f5593a340a088a3a75a9da27, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7d3525ffaf4f2f24fb48a7839a163ed1, type: 3}
+      objectReference: {fileID: 21300000, guid: a02cbd4ffdc77df438af897978237a01, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32c5b753f5593a340a088a3a75a9da27, type: 3}
 --- !u!114 &7282100770576777896 stripped
