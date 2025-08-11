@@ -33,6 +33,13 @@ public class Card : MonoBehaviour
             Debug.Log(rl.row + " " + rl.col);
         }
         */
+
+        if (ServiceLocator.craftingTable == null)
+        {
+            GetComponent<CardUi>().UpdateTimesText(0);
+            return;
+        }
+        GetComponent<CardUi>().UpdateTimesText(GetRecipeLocations().Count);
     }
 
     public virtual string[][] GetRecipe()

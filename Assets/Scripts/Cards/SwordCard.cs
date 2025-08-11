@@ -9,7 +9,7 @@ public class SwordCard : Card
         return new string[][]
         {
             new string[] { "rock" },
-            new string[] { "wood" },
+            new string[] { "rock" },
             new string[] { "wood" }
         };
     }
