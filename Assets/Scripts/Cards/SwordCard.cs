@@ -13,4 +13,9 @@ public class SwordCard : Card
             new string[] { "wood" }
         };
     }
+
+    public override void OnCraft()
+    {
+        DamageAdjacentEnemies(2);
+    }
 }

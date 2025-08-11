@@ -174,4 +174,77 @@ public class Card : MonoBehaviour
             }
         }
     }
+
+    protected void DamageAdjacentEnemies(int amt)
+    {
+        var locs = GetRecipeLocations();
+        foreach (RecipeLocation rl in locs)
+        {
+            List<Bug> enemies = FindAdjacentEnemies(rl);
+            foreach (Bug enemy in enemies)
+            {
+                enemy.TakeDamage(amt);
+            }
+        }
+    }
+
+    protected List<Bug> FindAdjacentEnemies(RecipeLocation rl)
+    {
+        var slots = ServiceLocator.craftingTable.GetSlots();
+        List<Bug> adjacent = new List<Bug>();
+        for (int row = rl.row; row < rl.row + GetRecipe().Length; ++row)
+        {
+            for (int col = rl.col; col < rl.col + GetRecipe()[0].Length; ++col)
+            {
+                List<Bug> toAdd = FindAdjacentEnemies(row, col);
+                foreach (Bug b in toAdd)
+                {
+                    if (!adjacent.Contains(b))
+                    {
+                        adjacent.Add(b);
+                    }
+                }
+            }
+        }
+        return adjacent;
+    }
+
+    private List<Bug> FindAdjacentEnemies(int row, int col)
+    {
+        var ret = new List<Bug>();
+        var slots = ServiceLocator.craftingTable.GetSlots();
+        if (row > 0)
+        {
+            Bug b = slots[row - 1][col].GetBug();
+            if (b != null)
+            {
+                ret.Add(b);
+            }
+        }
+        if (row < slots.Count - 1)
+        {
+            Bug b = slots[row + 1][col].GetBug();
+            if (b != null)
+            {
+                ret.Add(b);
+            }
+        }
+        if (col > 0)
+        {
+            Bug b = slots[row][col - 1].GetBug();
+            if (b != null)
+            {
+                ret.Add(b);
+            }
+        }
+        if (col < slots[row].Count - 1)
+        {
+            Bug b = slots[row][col + 1].GetBug();
+            if (b != null)
+            {
+                ret.Add(b);
+            }
+        }
+        return ret;
+    }
 }

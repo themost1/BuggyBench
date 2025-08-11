@@ -77,4 +77,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: sword
   title: Sword
-  description: Deal one damage
+  description: Deal one damage to adjacent enemies.
+  inDraft: 0
