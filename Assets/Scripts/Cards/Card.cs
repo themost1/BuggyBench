@@ -66,6 +66,11 @@ public class Card : MonoBehaviour
         {
             foreach (string resource in resourceRow)
             {
+                if (resource == "")
+                {
+                    col++;
+                    continue;
+                }
                 GameObject resourceObj = ServiceLocator.resourceCache.GetResource(resource);
                 resourceObj.transform.SetParent(transform);
                 resourceObj.transform.position = transform.position;

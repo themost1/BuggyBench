@@ -60,6 +60,11 @@ public class CraftingSlot : MonoBehaviour
 
     public bool HasResource(string resourceId)
     {
+        if (resourceId == "")
+        {
+            return true;
+        }
+
         if (resource != null && resource.GetComponent<Resource>().id == resourceId)
         {
             return true;
