@@ -16,6 +16,7 @@ public class PickaxeCard : Card
 
     public override void OnCraft()
     {
-        DamageAllEnemies(1);
+        DamageAdjacentEnemies(3);
+        ServiceLocator.inventory.AddResource("diamond", GetRecipeLocations().Count);
     }
 }

@@ -36,7 +36,7 @@ public class CraftingSlot : MonoBehaviour
             {
                 return;
             }
-            ServiceLocator.inventory.AddResource(resource.GetComponent<Resource>().id);
+            ServiceLocator.inventory.AddResource(resource.GetComponent<Resource>().id, 1);
             Destroy(resource);
             return;
         }

@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddResource(string id)
+    public void AddResource(string id, int num)
     {
         foreach (InventorySlot slotIt in slots)
         {
@@ -60,7 +60,7 @@ public class Inventory : MonoBehaviour
             {
                 continue;
             }
-            ++slotIt.num;
+            slotIt.num += num;
             return;
         }
     }

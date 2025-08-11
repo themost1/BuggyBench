@@ -28,7 +28,7 @@ public class CardCache : MonoBehaviour
     public List<GameObject> CreateRandomCards(int num)
     {
         List<string> keys = cardMap.Keys.ToList();
-        keys.OrderBy(arg => Guid.NewGuid()).Take(num).ToList();
+        keys = keys.OrderBy(arg => Guid.NewGuid()).Take(num).ToList();
         List<GameObject> cards = new List<GameObject>();
         for (int i = 0; i < num; i++)
         {
