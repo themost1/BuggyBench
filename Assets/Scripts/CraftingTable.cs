@@ -170,4 +170,19 @@ public class CraftingTable : MonoBehaviour
             }
         }
     }
+
+    public bool HasNoEnemies()
+    {
+        for (int row = 0; row < slots.Count; ++row)
+        {
+            for (int col = 0; col < slots[row].Count; ++col)
+            {
+                if (slots[row][col].GetEnemy() != null)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
