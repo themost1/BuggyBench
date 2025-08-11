@@ -146,9 +146,8 @@ public class CraftingTable : MonoBehaviour
 
                 Vector2 moveSlot = moveLocs[bugsFound];
                 Vector3 movePos = slots[(int)moveSlot.x][(int)moveSlot.y].transform.position;
-                slots[row][col].GetBug().MoveTo(movePos, moveSlot);
+                slots[row][col].GetBug().MoveTo(movePos, moveSlot, new Vector2(row, col));
                 bugsFound++;
-                slots[row][col].SetBug(null);
             }
         }
 

@@ -26,14 +26,6 @@ public class Card : MonoBehaviour
 
     void Update()
     {
-        /*
-        List<RecipeLocation> locs = GetRecipeLocations();
-        foreach (RecipeLocation rl in locs)
-        {
-            Debug.Log(rl.row + " " + rl.col);
-        }
-        */
-
         if (ServiceLocator.craftingTable == null)
         {
             GetComponent<CardUi>().UpdateTimesText(0);
