@@ -32,6 +32,11 @@ public class CraftingSlot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            if (resource == null)
+            {
+                return;
+            }
+            ServiceLocator.inventory.AddResource(resource.GetComponent<Resource>().id);
             Destroy(resource);
             return;
         }

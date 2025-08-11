@@ -52,6 +52,19 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AddResource(string id)
+    {
+        foreach (InventorySlot slotIt in slots)
+        {
+            if (slotIt.id != id)
+            {
+                continue;
+            }
+            ++slotIt.num;
+            return;
+        }
+    }
+
     public void GenerateRandomBasics(int num)
     {
         int numBasics = 4;
