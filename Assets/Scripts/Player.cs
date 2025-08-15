@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int health;
     private int initialHealth = 50;
     private List<StatusEffect> statusEffects = new List<StatusEffect>();
+    private List<string> effectsToAdd = new List<string>();
 
     void Awake()
     {
@@ -79,21 +80,18 @@ public class Player : MonoBehaviour
     {
         foreach (StatusEffect effect in statusEffects)
         {
-            if (effect.isNew)
-            {
-                continue;
-            }
             amt = effect.GetDamage(amt);
         }
         return amt;
     }
 
-    public void MarkStatusEffectsNotNew()
+    public void OnTurnStart()
     {
-        foreach (StatusEffect effect in statusEffects)
+        foreach (string effect in effectsToAdd)
         {
-            effect.isNew = false;
+            ApplyStatusEffect(effect);
         }
+        effectsToAdd.Clear();
     }
 
     public int GetNumAdditionalRandomBasics()
@@ -101,14 +99,34 @@ public class Player : MonoBehaviour
         int amt = 0;
         foreach (StatusEffect effect in statusEffects)
         {
-            if (effect.isNew)
-            {
-                continue;
-            }
             amt = effect.GetDamage(amt);
         }
         return amt;
     }
 
-    public void AddStatusEffect(string id) { }
+    public void AddStatusEffect(string id)
+    {
+        effectsToAdd.Add(id);
+    }
+
+    private void ApplyStatusEffect(string id)
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            if (effect.id == id)
+            {
+                effect.num++;
+                return;
+            }
+        }
+
+        GameObject effectObj = ServiceLocator.statusEffectCache.GetStatusEffect(id);
+        statusEffects.Add(effectObj.GetComponent<StatusEffect>());
+        effectObj.transform.position = new Vector3(-3f - 0.8f * statusEffects.Count, -3f, 0f);
+    }
+
+    public void ClearStatusEffects()
+    {
+        statusEffects.Clear();
+    }
 }

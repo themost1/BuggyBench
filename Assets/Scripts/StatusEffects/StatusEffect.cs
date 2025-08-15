@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StatusEffect : MonoBehaviour
 {
-    public bool isNew = true;
     public string id = "statusEffect";
     public int num = 1;
 

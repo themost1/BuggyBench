@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920480131504318046, guid: cb8ce792931b5474c97ec49f1c7c542c, type: 3}
       propertyPath: m_Name
-      value: MirrorCard
+      value: FuelCard
       objectReference: {fileID: 0}
     - target: {fileID: 4955837928431459440, guid: cb8ce792931b5474c97ec49f1c7c542c, type: 3}
       propertyPath: m_RootOrder
@@ -63,7 +63,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 920480131504318046, guid: cb8ce792931b5474c97ec49f1c7c542c, type: 3}
   m_PrefabInstance: {fileID: 7081311883946466329}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-8986323887179250607
+--- !u!114 &-6547280774770758416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,11 +72,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7963468526121859655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bdf83df89e5b624ca7aff71d30a8b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d57be27a5ec664419cddd2ccf1666e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: mirror
-  title: Mirror
-  description: Deal damage to all enemies equal to the number of adjacent resources
-    to this recipe.
+  id: fuel
+  title: Fuel
+  description: Gain one strength. (Whenever you deal damage, deal one more.)
   inDraft: 0

@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextSceneAfterFight()
     {
+        ServiceLocator.player.ClearStatusEffects();
         SceneManager.LoadScene("DraftScene");
     }
 
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
     public void OnCraftEnd()
     {
         craftTurn++;
-        ServiceLocator.player.MarkStatusEffectsNotNew();
+        ServiceLocator.player.OnTurnStart();
         int additionalBasics = ServiceLocator.player.GetNumAdditionalRandomBasics();
         ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5 + additionalBasics);
     }
