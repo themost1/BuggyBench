@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public int health;
     private int initialHealth = 50;
+    private List<StatusEffect> statusEffects = new List<StatusEffect>();
 
     void Awake()
     {
@@ -60,4 +61,54 @@ public class Player : MonoBehaviour
         cards.Clear();
         health = initialHealth;
     }
+
+    public bool HasCard(string id)
+    {
+        foreach (Card card in cards)
+        {
+            if (card.GetId() == id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int GetDamage(int amt)
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            if (effect.isNew)
+            {
+                continue;
+            }
+            amt = effect.GetDamage(amt);
+        }
+        return amt;
+    }
+
+    public void MarkStatusEffectsNotNew()
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            effect.isNew = false;
+        }
+    }
+
+    public int GetNumAdditionalRandomBasics()
+    {
+        int amt = 0;
+        foreach (StatusEffect effect in statusEffects)
+        {
+            if (effect.isNew)
+            {
+                continue;
+            }
+            amt = effect.GetDamage(amt);
+        }
+        return amt;
+    }
+
+    public void AddStatusEffect(string id) { }
 }

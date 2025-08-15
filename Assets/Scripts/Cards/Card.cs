@@ -174,7 +174,7 @@ public class Card : MonoBehaviour
                     continue;
                 }
 
-                enemy.TakeDamage(amt);
+                enemy.TakeDamage(ServiceLocator.player.GetDamage(amt));
             }
         }
     }
@@ -187,7 +187,7 @@ public class Card : MonoBehaviour
             List<Bug> enemies = FindAdjacentEnemies(rl);
             foreach (Bug enemy in enemies)
             {
-                enemy.TakeDamage(amt);
+                enemy.TakeDamage(ServiceLocator.player.GetDamage(amt));
             }
         }
     }
@@ -209,7 +209,7 @@ public class Card : MonoBehaviour
         {
             return;
         }
-        bug.TakeDamage(amt);
+        bug.TakeDamage(ServiceLocator.player.GetDamage(amt));
     }
 
     protected List<Bug> FindAdjacentEnemies(RecipeLocation rl)

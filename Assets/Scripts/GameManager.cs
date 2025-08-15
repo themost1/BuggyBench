@@ -95,7 +95,9 @@ public class GameManager : MonoBehaviour
     public void OnCraftEnd()
     {
         craftTurn++;
-        ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5);
+        ServiceLocator.player.MarkStatusEffectsNotNew();
+        int additionalBasics = ServiceLocator.player.GetNumAdditionalRandomBasics();
+        ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5 + additionalBasics);
     }
 
     public void PostCraft()

@@ -8,7 +8,7 @@ public class DraftSpawner : MonoBehaviour
 
     void Start()
     {
-        options = ServiceLocator.cardCache.CreateRandomCards(3);
+        options = ServiceLocator.cardCache.CreateRandomNonHeldCards(3);
         for (int i = 0; i < options.Count; i++)
         {
             options[i].transform.position = new Vector3(i * 2f - 2f, 0, 0);

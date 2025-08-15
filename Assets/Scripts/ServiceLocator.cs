@@ -8,6 +8,7 @@ public class ServiceLocator : MonoBehaviour
     public static ResourceCache resourceCache;
     public static CardCache cardCache;
     public static BugCache bugCache;
+    public static StatusEffectCache statusEffectCache;
     public static CraftingTable craftingTable;
     public static Player player;
     public static GameManager gameManager;
