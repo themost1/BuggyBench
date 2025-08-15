@@ -192,6 +192,26 @@ public class Card : MonoBehaviour
         }
     }
 
+    protected void DamageEnemyAtLocation(int amt, RecipeLocation location)
+    {
+        var slots = ServiceLocator.craftingTable.GetSlots();
+        if (
+            location.row < 0
+            || location.row >= slots.Count
+            || location.col < 0
+            || location.col >= slots[location.row].Count
+        )
+        {
+            return;
+        }
+        Bug bug = slots[location.row][location.col].GetEnemy();
+        if (bug == null)
+        {
+            return;
+        }
+        bug.TakeDamage(amt);
+    }
+
     protected List<Bug> FindAdjacentEnemies(RecipeLocation rl)
     {
         var slots = ServiceLocator.craftingTable.GetSlots();
@@ -219,7 +239,7 @@ public class Card : MonoBehaviour
         var slots = ServiceLocator.craftingTable.GetSlots();
         if (row > 0)
         {
-            Bug b = slots[row - 1][col].GetBug();
+            Bug b = slots[row - 1][col].GetEnemy();
             if (b != null)
             {
                 ret.Add(b);
@@ -227,7 +247,7 @@ public class Card : MonoBehaviour
         }
         if (row < slots.Count - 1)
         {
-            Bug b = slots[row + 1][col].GetBug();
+            Bug b = slots[row + 1][col].GetEnemy();
             if (b != null)
             {
                 ret.Add(b);
@@ -235,7 +255,7 @@ public class Card : MonoBehaviour
         }
         if (col > 0)
         {
-            Bug b = slots[row][col - 1].GetBug();
+            Bug b = slots[row][col - 1].GetEnemy();
             if (b != null)
             {
                 ret.Add(b);
@@ -243,7 +263,7 @@ public class Card : MonoBehaviour
         }
         if (col < slots[row].Count - 1)
         {
-            Bug b = slots[row][col + 1].GetBug();
+            Bug b = slots[row][col + 1].GetEnemy();
             if (b != null)
             {
                 ret.Add(b);
