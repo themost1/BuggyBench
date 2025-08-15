@@ -78,6 +78,11 @@ public class CraftingSlot : MonoBehaviour
         return false;
     }
 
+    public bool HasAnyResource()
+    {
+        return resource != null;
+    }
+
     public Bug GetBug()
     {
         return bug == null ? null : bug.GetComponent<Bug>();
