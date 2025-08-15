@@ -43,4 +43,9 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    public void LoseHealth(int amt)
+    {
+        health = Mathf.Max(0, health - amt);
+    }
 }

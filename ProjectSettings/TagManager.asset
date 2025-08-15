@@ -53,3 +53,6 @@ TagManager:
   - name: CraftingTable
     uniqueID: 510202273
     locked: 0
+  - name: Top
+    uniqueID: 181297277
+    locked: 0

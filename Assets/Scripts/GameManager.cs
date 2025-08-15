@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
         return "FightScene";
     }
 
+    public bool InFinalFight()
+    {
+        return numDraftsDone >= 5;
+    }
+
     public int GetNumBugs()
     {
         if (numDraftsDone == 3)

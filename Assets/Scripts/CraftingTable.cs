@@ -165,7 +165,7 @@ public class CraftingTable : MonoBehaviour
                     continue;
                 }
 
-                ServiceLocator.player.health -= slots[row][col].GetBug().attack;
+                ServiceLocator.player.LoseHealth(slots[row][col].GetBug().attack);
             }
         }
     }
