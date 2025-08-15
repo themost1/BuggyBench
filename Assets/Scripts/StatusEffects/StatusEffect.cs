@@ -11,4 +11,9 @@ public class StatusEffect : MonoBehaviour
     {
         return amt;
     }
+
+    public virtual int GetNumAdditionalRandomBasics()
+    {
+        return 0;
+    }
 }

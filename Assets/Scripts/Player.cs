@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         int amt = 0;
         foreach (StatusEffect effect in statusEffects)
         {
-            amt = effect.GetDamage(amt);
+            amt += effect.GetNumAdditionalRandomBasics();
         }
         return amt;
     }
