@@ -128,6 +128,10 @@ public class CraftingTable : MonoBehaviour
                     {
                         continue;
                     }
+                    if (slots[(int)loc.x][(int)loc.y].GetBug() != null)
+                    {
+                        continue;
+                    }
                     moveLocs.Add(loc);
                     break;
                 }
