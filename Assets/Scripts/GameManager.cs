@@ -8,11 +8,33 @@ public class GameManager : MonoBehaviour
     public int numDraftsDone = 0;
     public int craftTurn = 0;
 
+    private bool won = false,
+        lost = false;
+
     void Awake()
     {
         ServiceLocator.gameManager = this;
         DontDestroyOnLoad(this);
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && (won || lost))
+        {
+            Restart();
+        }
+    }
+
+    private void Restart()
+    {
+        numDraftsDone = 0;
+        craftTurn = 0;
+        ServiceLocator.inventory.ClearAllResources();
+        ServiceLocator.player.Reset();
+        won = false;
+        lost = false;
+        SceneManager.LoadScene("DraftScene");
     }
 
     public void LoadNextSceneAfterDraft()
@@ -74,5 +96,27 @@ public class GameManager : MonoBehaviour
     {
         craftTurn++;
         ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5);
+    }
+
+    public void PostCraft()
+    {
+        if (ServiceLocator.player.health <= 0)
+        {
+            lost = true;
+        }
+        else if (ServiceLocator.craftingTable.HasNoEnemies() && InFinalFight())
+        {
+            won = true;
+        }
+    }
+
+    public bool Lost()
+    {
+        return lost;
+    }
+
+    public bool Won()
+    {
+        return won;
     }
 }

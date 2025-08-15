@@ -6,11 +6,13 @@ public class Player : MonoBehaviour
 {
     private List<Card> cards = new List<Card>();
 
-    public int health = 50;
+    public int health;
+    private int initialHealth = 50;
 
     void Awake()
     {
         ServiceLocator.player = this;
+        health = initialHealth;
         DontDestroyOnLoad(this);
     }
 
@@ -47,5 +49,15 @@ public class Player : MonoBehaviour
     public void LoseHealth(int amt)
     {
         health = Mathf.Max(0, health - amt);
+    }
+
+    public void Reset()
+    {
+        foreach (Card card in cards)
+        {
+            Destroy(card.gameObject);
+        }
+        cards.Clear();
+        health = initialHealth;
     }
 }

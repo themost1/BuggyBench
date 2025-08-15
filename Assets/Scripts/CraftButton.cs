@@ -17,18 +17,20 @@ public class CraftButton : MonoBehaviour
         ServiceLocator.craftingTable.AttackBugs();
         ServiceLocator.craftingTable.MoveBugs();
         ServiceLocator.gameManager.OnCraftEnd();
+        ServiceLocator.gameManager.PostCraft();
         DisplayUiAfterCraft();
     }
 
     private void DisplayUiAfterCraft()
     {
-        if (ServiceLocator.player.health <= 0)
+        if (ServiceLocator.gameManager.Lost())
         {
             loseBanner.GetComponent<Banner>().Display();
+            return;
         }
         if (ServiceLocator.craftingTable.HasNoEnemies())
         {
-            if (ServiceLocator.gameManager.InFinalFight())
+            if (ServiceLocator.gameManager.Won())
             {
                 winBanner.GetComponent<Banner>().Display();
             }
