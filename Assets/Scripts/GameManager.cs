@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "FightScene")
         {
             craftTurn = 0;
-            ServiceLocator.inventory.GenerateRandomBasics(craftTurn + 5);
+            GiveBasicsForTurn();
             ServiceLocator.inventory.gameObject.SetActive(true);
         }
         else
@@ -99,10 +99,7 @@ public class GameManager : MonoBehaviour
         ServiceLocator.player.OnTurnStart();
         int additionalBasics = ServiceLocator.player.GetNumAdditionalRandomBasics();
         // int amt = craftTurn + 5 + additionalBasics;
-        int randomBasics = 2 + additionalBasics;
-        int weightedBasics = 4;
-        ServiceLocator.inventory.GenerateRandomBasics(randomBasics);
-        ServiceLocator.inventory.GiveRandomWeightedBasics(weightedBasics);
+        GiveBasicsForTurn();
     }
 
     public void PostCraft()
@@ -125,5 +122,13 @@ public class GameManager : MonoBehaviour
     public bool Won()
     {
         return won;
+    }
+
+    public void GiveBasicsForTurn()
+    {
+        int randomBasics = 2 + additionalBasics;
+        int weightedBasics = 4;
+        ServiceLocator.inventory.GenerateRandomBasics(randomBasics);
+        ServiceLocator.inventory.GiveRandomWeightedBasics(weightedBasics);
     }
 }
