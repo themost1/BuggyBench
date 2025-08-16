@@ -6,7 +6,12 @@ public class TreeCard : Card
 {
     public override string[][] GetRecipe()
     {
-        return new string[][] { new string[] { "wood" }, new string[] { "wood" }, };
+        return new string[][]
+        {
+            new string[] { "wood" },
+            new string[] { "wood" },
+            new string[] { "wood" }
+        };
     }
 
     public override void OnCraft()
