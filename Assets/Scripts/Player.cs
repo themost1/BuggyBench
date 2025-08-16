@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
         {
             cards[i].transform.position = new Vector3(-7f + 2f * i, 3.4f, 0f);
         }
+
+        for (int i = 0; i < statusEffects.Count; ++i)
+        {
+            statusEffects[i].transform.position = new Vector3(-3.3f - 0.8f * i, -3f, 0f);
+        }
     }
 
     public void GainCard(string id)
@@ -122,7 +127,7 @@ public class Player : MonoBehaviour
 
         GameObject effectObj = ServiceLocator.statusEffectCache.GetStatusEffect(id);
         statusEffects.Add(effectObj.GetComponent<StatusEffect>());
-        effectObj.transform.position = new Vector3(-3f - 0.8f * statusEffects.Count, -3f, 0f);
+        // effectObj.transform.position = new Vector3(-3f - 0.8f * statusEffects.Count, -3f, 0f);
     }
 
     public void ClearStatusEffects()
