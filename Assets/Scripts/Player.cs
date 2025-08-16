@@ -132,6 +132,10 @@ public class Player : MonoBehaviour
 
     public void ClearStatusEffects()
     {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            Destroy(effect.gameObject);
+        }
         statusEffects.Clear();
     }
 
