@@ -97,8 +97,6 @@ public class GameManager : MonoBehaviour
     {
         craftTurn++;
         ServiceLocator.player.OnTurnStart();
-        int additionalBasics = ServiceLocator.player.GetNumAdditionalRandomBasics();
-        // int amt = craftTurn + 5 + additionalBasics;
         GiveBasicsForTurn();
     }
 
@@ -126,6 +124,7 @@ public class GameManager : MonoBehaviour
 
     public void GiveBasicsForTurn()
     {
+        int additionalBasics = ServiceLocator.player.GetNumAdditionalRandomBasics();
         int randomBasics = 2 + additionalBasics;
         int weightedBasics = 4;
         ServiceLocator.inventory.GenerateRandomBasics(randomBasics);

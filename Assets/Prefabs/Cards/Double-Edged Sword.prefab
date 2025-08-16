@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920480131504318046, guid: cb8ce792931b5474c97ec49f1c7c542c, type: 3}
       propertyPath: m_Name
-      value: SwordCard
+      value: Double-Edged Sword
       objectReference: {fileID: 0}
     - target: {fileID: 4955837928431459440, guid: cb8ce792931b5474c97ec49f1c7c542c, type: 3}
       propertyPath: m_RootOrder
@@ -63,7 +63,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 920480131504318046, guid: cb8ce792931b5474c97ec49f1c7c542c, type: 3}
   m_PrefabInstance: {fileID: 7081311883946466329}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2534082282155622168
+--- !u!114 &4786628975179161116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,10 +72,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7963468526121859655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c942170a3c7b2f54f9d31733052a7f61, type: 3}
+  m_Script: {fileID: 11500000, guid: 49da38e56e18539459153517eaae10ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: sword
-  title: Stone Sword
-  description: Deal 2 damage to adjacent enemies.
+  id: doubleEdgedSword
+  title: Double-Edged Sword
+  description: Deal three damage to every adjacent enemy. Take three damage.
   inDraft: 0
