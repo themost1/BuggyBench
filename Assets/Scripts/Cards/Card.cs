@@ -358,4 +358,22 @@ public class Card : MonoBehaviour
         }
         return ret;
     }
+
+    public List<string> GetRecipeBasics()
+    {
+        var ret = new List<string>();
+        foreach (var row in GetRecipe())
+        {
+            foreach (string basic in row)
+            {
+                if (basic == "")
+                {
+                    continue;
+                }
+                ret.Add(basic);
+            }
+        }
+
+        return ret;
+    }
 }

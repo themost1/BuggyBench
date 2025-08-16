@@ -80,6 +80,23 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void GiveRandomWeightedBasics(int num)
+    {
+        List<string> recipeBasics = ServiceLocator.player.GetAllRecipeBasics();
+        for (int i = 0; i < num; ++i)
+        {
+            int which = Random.Range(0, recipeBasics.Count);
+            for (int slot = 0; slot < slots.Count; slot++)
+            {
+                if (slots[slot].id == recipeBasics[which])
+                {
+                    ++slots[slot].num;
+                    break;
+                }
+            }
+        }
+    }
+
     public void ClearAllResources()
     {
         for (int i = 0; i < slots.Count; ++i)

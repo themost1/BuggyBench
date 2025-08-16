@@ -129,4 +129,19 @@ public class Player : MonoBehaviour
     {
         statusEffects.Clear();
     }
+
+    public List<string> GetAllRecipeBasics()
+    {
+        List<string> ret = new List<string>();
+        foreach (Card card in cards)
+        {
+            List<string> cardBasics = card.GetRecipeBasics();
+            foreach (string basic in cardBasics)
+            {
+                ret.Add(basic);
+            }
+        }
+
+        return ret;
+    }
 }
