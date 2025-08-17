@@ -47,7 +47,7 @@ public class ShovelCard : Card
         }
         int bugHealth = bug.health;
         DamageEnemyAtLocation(dmgAmt, rl);
-        if (bugHealth <= 2)
+        if (bugHealth > 0 && bugHealth <= 2)
         {
             ServiceLocator.inventory.AddResource("diamond", 1);
         }
