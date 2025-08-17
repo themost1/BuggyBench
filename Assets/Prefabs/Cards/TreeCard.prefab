@@ -77,5 +77,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: tree
   title: Tree
-  description: Gain one vigor. (Gain an additional resource each turn.)
+  description: Gain 2 vigor. (Gain an additional resource each turn.)
   inDraft: 0

@@ -19,6 +19,7 @@ public class TreeCard : Card
         foreach (RecipeLocation rl in GetRecipeLocations())
         {
             ServiceLocator.player.AddStatusEffect("vigor");
+            ServiceLocator.player.AddStatusEffect("vigor");
         }
     }
 }
