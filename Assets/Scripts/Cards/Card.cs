@@ -376,4 +376,9 @@ public class Card : MonoBehaviour
 
         return ret;
     }
+
+    public virtual int GetPlayerDamage(int amt)
+    {
+        return amt;
+    }
 }

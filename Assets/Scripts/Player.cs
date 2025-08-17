@@ -44,17 +44,24 @@ public class Player : MonoBehaviour
             card.OnCraft();
         }
 
-        foreach (var row in ServiceLocator.craftingTable.GetSlots())
+        foreach (string effect in effectsToAdd)
         {
-            foreach (var slot in row)
-            {
-                slot.ClearResource();
-            }
+            ApplyStatusEffect(effect);
         }
     }
 
     public void LoseHealth(int amt)
     {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            amt = effect.GetPlayerDamage(amt);
+        }
+
+        foreach (Card card in cards)
+        {
+            amt = card.GetPlayerDamage(amt);
+        }
+
         health = Mathf.Max(0, health - amt);
     }
 
@@ -66,6 +73,7 @@ public class Player : MonoBehaviour
         }
         cards.Clear();
         health = initialHealth;
+        ClearStatusEffects();
     }
 
     public bool HasCard(string id)
@@ -92,11 +100,22 @@ public class Player : MonoBehaviour
 
     public void OnTurnStart()
     {
-        foreach (string effect in effectsToAdd)
-        {
-            ApplyStatusEffect(effect);
-        }
+        ClearEmptyStatusEffects();
         effectsToAdd.Clear();
+    }
+
+    private void ClearEmptyStatusEffects()
+    {
+        for (int i = 0; i < statusEffects.Count; ++i)
+        {
+            if (statusEffects[i].num >= 0)
+            {
+                continue;
+            }
+            Destroy(statusEffects[i].gameObject);
+            statusEffects.RemoveAt(i);
+            i--;
+        }
     }
 
     public int GetNumAdditionalRandomBasics()

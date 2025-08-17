@@ -16,4 +16,9 @@ public class StatusEffect : MonoBehaviour
     {
         return 0;
     }
+
+    public virtual int GetPlayerDamage(int amt)
+    {
+        return amt;
+    }
 }

@@ -15,6 +15,7 @@ public class CraftButton : MonoBehaviour
     {
         ServiceLocator.player.Craft();
         ServiceLocator.craftingTable.AttackBugs();
+        ServiceLocator.craftingTable.ClearAllResources();
         ServiceLocator.craftingTable.MoveBugs();
         ServiceLocator.gameManager.OnCraftEnd();
         ServiceLocator.gameManager.PostCraft();

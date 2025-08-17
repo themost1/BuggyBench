@@ -188,4 +188,15 @@ public class CraftingTable : MonoBehaviour
         }
         return true;
     }
+
+    public void ClearAllResources()
+    {
+        foreach (var row in ServiceLocator.craftingTable.GetSlots())
+        {
+            foreach (var slot in row)
+            {
+                slot.ClearResource();
+            }
+        }
+    }
 }
