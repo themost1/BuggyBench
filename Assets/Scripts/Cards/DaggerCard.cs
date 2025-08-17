@@ -6,7 +6,7 @@ public class DaggerCard : Card
 {
     public override string[][] GetRecipe()
     {
-        return new string[][] { new string[] { "rock" }, new string[] { "wood" }, };
+        return new string[][] { new string[] { "metal" }, new string[] { "rock" }, };
     }
 
     public override void OnCraft()
