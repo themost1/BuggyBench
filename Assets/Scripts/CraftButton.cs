@@ -35,7 +35,10 @@ public class CraftButton : MonoBehaviour
             {
                 winBanner.GetComponent<Banner>().Display();
             }
-            proceedButton.SetActive(true);
+            if (!ServiceLocator.gameManager.Won())
+            {
+                proceedButton.SetActive(true);
+            }
         }
     }
 }

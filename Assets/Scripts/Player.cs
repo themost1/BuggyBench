@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private List<Card> cards = new List<Card>();
 
     public int health;
-    private int initialHealth = 100;
+    private int initialHealth = 50;
     private List<StatusEffect> statusEffects = new List<StatusEffect>();
     private List<string> effectsToAdd = new List<string>();
 

@@ -77,5 +77,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: doubleEdgedSword
   title: Double-Edged Sword
-  description: Deal three damage to every adjacent enemy. Take two damage.
+  description: Deal 3 damage to every adjacent enemy. Take 2 damage.
   inDraft: 0
