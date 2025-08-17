@@ -225,6 +225,10 @@ public class Card : MonoBehaviour
         {
             for (int col = rl.col; col < rl.col + GetRecipe()[0].Length; ++col)
             {
+                if (GetRecipe()[row][col] == "")
+                {
+                    continue;
+                }
                 List<Bug> toAdd = FindAdjacentEnemies(row, col);
                 foreach (Bug b in toAdd)
                 {
