@@ -12,6 +12,9 @@ public class DoubleEdgedSwordCard : Card
     public override void OnCraft()
     {
         DamageAdjacentEnemies(3);
-        ServiceLocator.player.LoseHealth(3);
+        for (int i = 0; i < GetRecipeLocations().Count; ++i)
+        {
+            ServiceLocator.player.LoseHealth(2);
+        }
     }
 }

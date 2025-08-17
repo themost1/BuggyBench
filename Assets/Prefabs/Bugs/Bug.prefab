@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: rockBug
   lastLocation: {x: 0, y: 0}
-  health: 10
+  health: 6
   attack: 3
   text: {fileID: 3444050646550973016}
 --- !u!212 &1421057939667709778

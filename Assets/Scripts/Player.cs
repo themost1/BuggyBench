@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private List<Card> cards = new List<Card>();
 
     public int health;
-    private int initialHealth = 50;
+    private int initialHealth = 100;
     private List<StatusEffect> statusEffects = new List<StatusEffect>();
     private List<string> effectsToAdd = new List<string>();
 
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     public void LoseHealth(int amt)
     {
+        Debug.Log(amt);
         foreach (StatusEffect effect in statusEffects)
         {
             amt = effect.GetPlayerDamage(amt);
