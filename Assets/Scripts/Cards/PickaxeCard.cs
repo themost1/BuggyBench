@@ -8,9 +8,9 @@ public class PickaxeCard : Card
     {
         return new string[][]
         {
-            new string[] { "rock", "rock", "rock" },
-            new string[] { "", "wood", "" },
-            new string[] { "", "wood", "" }
+            new string[] { "rock", "rock" },
+            new string[] { "wood", "" },
+            new string[] { "wood", "" }
         };
     }
 

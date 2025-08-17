@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
 
     public void LoseHealth(int amt)
     {
-        Debug.Log(amt);
         foreach (StatusEffect effect in statusEffects)
         {
             amt = effect.GetPlayerDamage(amt);
