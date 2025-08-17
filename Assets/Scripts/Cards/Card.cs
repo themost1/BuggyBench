@@ -93,7 +93,7 @@ public class Card : MonoBehaviour
         return description;
     }
 
-    public List<RecipeLocation> GetRecipeLocations()
+    public virtual List<RecipeLocation> GetRecipeLocations()
     {
         List<RecipeLocation> locs = new List<RecipeLocation>();
 
@@ -117,9 +117,14 @@ public class Card : MonoBehaviour
         return locs;
     }
 
-    private bool RecipeExists(List<List<CraftingSlot>> slots, int row, int col)
+    protected bool RecipeExists(List<List<CraftingSlot>> slots, int row, int col)
     {
         string[][] recipe = GetRecipe();
+        return RecipeExists(slots, row, col, recipe);
+    }
+
+    protected bool RecipeExists(List<List<CraftingSlot>> slots, int row, int col, string[][] recipe)
+    {
         for (int i = 0; i < recipe.Length; i++)
         {
             for (int j = 0; j < recipe[i].Length; j++)
