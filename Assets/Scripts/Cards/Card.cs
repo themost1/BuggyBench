@@ -274,26 +274,7 @@ public class Card : MonoBehaviour
 
     public List<Location> FindAdjacentLocationsToRecipe(RecipeLocation topLeftLoc)
     {
-        List<Location> recipeLocs = new List<Location>();
-        string[][] recipe = GetRecipe();
-        int row = 0,
-            col = 0;
-        foreach (string[] recipeRow in recipe)
-        {
-            foreach (string val in recipeRow)
-            {
-                if (val == "")
-                {
-                    col++;
-                    continue;
-                }
-                Location l = new Location(topLeftLoc.row + row, topLeftLoc.col + col);
-                recipeLocs.Add(l);
-                col++;
-            }
-            row++;
-            col = 0;
-        }
+        List<Location> recipeLocs = GetResourceLocationsInRecipe(topLeftLoc);
 
         List<Location> ret = new List<Location>();
         foreach (Location loc in recipeLocs)
@@ -380,5 +361,41 @@ public class Card : MonoBehaviour
     public virtual int GetPlayerDamage(int amt)
     {
         return amt;
+    }
+
+    protected List<Location> GetResourceLocationsInRecipe(RecipeLocation topLeftLoc)
+    {
+        List<Location> recipeLocs = new List<Location>();
+        string[][] recipe = GetRecipe();
+        int row = 0,
+            col = 0;
+        foreach (string[] recipeRow in recipe)
+        {
+            foreach (string val in recipeRow)
+            {
+                if (val == "")
+                {
+                    col++;
+                    continue;
+                }
+                Location l = new Location(topLeftLoc.row + row, topLeftLoc.col + col);
+                recipeLocs.Add(l);
+                col++;
+            }
+            row++;
+            col = 0;
+        }
+        return recipeLocs;
+    }
+
+    public List<List<Location>> GetRecipeResourceLocations()
+    {
+        var ret = new List<List<Location>>();
+        var recipeLocations = GetRecipeLocations();
+        foreach (RecipeLocation rl in recipeLocations)
+        {
+            ret.Add(GetResourceLocationsInRecipe(rl));
+        }
+        return ret;
     }
 }

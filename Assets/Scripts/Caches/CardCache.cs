@@ -16,6 +16,34 @@ public class CardCache : MonoBehaviour
         {
             cardMap[card.GetComponent<Card>().GetId()] = card;
         }
+
+        int metalNum = 0,
+            rockNum = 0,
+            woodNum = 0,
+            coalNum = 0;
+        foreach (GameObject card in cards)
+        {
+            List<string> basics = card.GetComponent<Card>().GetRecipeBasics();
+            if (basics.Contains("metal"))
+            {
+                metalNum++;
+            }
+            if (basics.Contains("rock"))
+            {
+                rockNum++;
+            }
+            if (basics.Contains("wood"))
+            {
+                woodNum++;
+            }
+            if (basics.Contains("coal"))
+            {
+                coalNum++;
+            }
+        }
+        Debug.Log(
+            "Metal: " + metalNum + ", Rock: " + rockNum + ", Wood: " + woodNum + ", Coal:" + coalNum
+        );
     }
 
     public GameObject CreateCard(string id)

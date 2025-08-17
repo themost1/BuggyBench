@@ -173,4 +173,9 @@ public class Player : MonoBehaviour
 
         return ret;
     }
+
+    public List<Card> GetCards()
+    {
+        return cards;
+    }
 }
