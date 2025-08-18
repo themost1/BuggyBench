@@ -29,9 +29,9 @@ public class MoltenMetalCard : Card
                 continue;
             }
 
-            bool foundMatch = false;
             foreach (List<Location> otherLocs in card.GetRecipeResourceLocations())
             {
+                bool foundMatch = false;
                 foreach (Location otherLoc in otherLocs)
                 {
                     foreach (Location loc in locs)
