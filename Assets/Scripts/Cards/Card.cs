@@ -225,7 +225,7 @@ public class Card : MonoBehaviour
         {
             for (int col = rl.col; col < rl.col + GetRecipe()[0].Length; ++col)
             {
-                if (GetRecipe()[row][col] == "")
+                if (GetRecipe()[row - rl.row][col - rl.col] == "")
                 {
                     continue;
                 }
