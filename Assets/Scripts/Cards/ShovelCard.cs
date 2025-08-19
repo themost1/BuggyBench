@@ -26,7 +26,7 @@ public class ShovelCard : Card
             rl.col -= 1;
             DoDamage(rl);
 
-            rl.row += 2;
+            rl.col += 2;
             DoDamage(rl);
         }
     }
